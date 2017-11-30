@@ -78,4 +78,7 @@ typings/
 *.css.map
 ./dist/**/*.css
 
+#other
+.DS_Store
+
 # End of https://www.gitignore.io/api/git,node,visualstudiocode
