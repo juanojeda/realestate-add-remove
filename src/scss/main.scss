@@ -1,5 +1,6 @@
 @import 'normalize-scss/sass/normalize';
+@import './variables';
 
 body {
-  background: green;
+  background: $body-bg;
 }

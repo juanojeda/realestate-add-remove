@@ -1,0 +1,6 @@
+$color-body-bg: #f2fafc;
+$color-text-base: #011627;
+
+$color-primary-base: #247ba0;
+$color-primary-dark: adjust-hue(darken($primary-base, 20%),  5deg);
+$color-primary-light: adjust-hue(lighten($primary-base, 30%), -5deg);
