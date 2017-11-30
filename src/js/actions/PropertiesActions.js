@@ -8,7 +8,7 @@ export const PROPERTIES_API = '/data/properties.json';
 
 export const requestFetchProperties = () => ({
   type: REQUEST_FETCH_PROPERTIES
-})
+});
 
 
 // action for requesting fetch
@@ -21,7 +21,7 @@ export const fetchProperties = () => dispatch => {
       dispatch(receiveFetchedProperties(json));
     })
     .catch(error => {
-      throw(error)
+      throw(error);
     });
 
   return propertiesPromise;
@@ -35,5 +35,13 @@ export const receiveFetchedProperties = propertiesData => ({
 });
 
 // action for adding properties to saved property store
+export const addProperty = property => ({
+  property,
+  type: ADD_PROPERTY
+});
 
 // action for removing properties to saved property store
+export const removeProperty = property => ({
+  property,
+  type: REMOVE_PROPERTY
+});
