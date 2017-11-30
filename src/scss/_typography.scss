@@ -17,3 +17,17 @@
   font-weight: 200;
   src: url('/fonts/Oxygen-Light.ttf');
 }
+
+h1,
+h3,
+h5 {
+  font-family: $font-light;
+  font-weight: 200;
+}
+
+h2,
+h4,
+h6 {
+  font-family: $font-heavy;
+  font-weight: 600;
+}

@@ -8,7 +8,21 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Property />
+        <div className="property-selector">
+          <div className="property-selector__list">
+            <div className="property-selector__list-header">
+              <h3>Results</h3>
+            </div>
+            <Property />
+            <Property />
+            <Property />
+          </div>
+
+          <div className="property-selector__list">
+            <h3>Saved Properties</h3>
+            <Property isSaved={true} />
+          </div>
+        </div>
       </div>
     );
   }

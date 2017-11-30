@@ -1,0 +1,79 @@
+.property {
+  background: $color-real-white;
+  border-radius: .5rem;
+  box-shadow: 0 0 2px rgba($color-black, .2);
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+
+  &__header {
+    padding: 1.5rem;
+  }
+
+  &__image-container {
+    height: 25rem;
+    overflow: hidden;
+  }
+
+  &__image {
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 100%;
+  }
+
+  &__details {
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  &__cta-container {
+    bottom: 50%;
+    left: 1rem;
+    opacity: 0;
+    right: 1rem;
+    position: absolute;
+    transition: .2s ease all;
+    transition-property: opacity z-index;
+    z-index: -1;
+  }
+
+  &:hover {
+    .property__cta-container {
+      z-index: 1;
+      opacity: 1;
+    }
+  }
+
+  &__cta {
+    appearance: none;
+    cursor: pointer;
+    display: block;
+    font-family: $font-heavy;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    transition: .2s ease all;
+    transition-property: background color;
+    width: 100%;
+
+    &--add {
+      background: $color-primary-base;
+      color: $color-white;
+
+      &:hover {
+        background: $color-primary-light;
+      }
+    }
+
+    &--remove {
+      background: $color-white;
+      color: $color-secondary-base;
+
+      &:hover {
+        background: $color-secondary-base;
+        color: $color-white;
+      }
+    }
+  }
+}

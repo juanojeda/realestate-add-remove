@@ -3,9 +3,30 @@ import PropTypes from 'prop-types';
 
 class Property extends Component {
   render() {
-    return (
-      <div>
+    const {
+      isSaved,
+      price,
+      id,
+      mainImage,
+      agency } = this.props;
+    const buttonClasses = `property__cta property__cta--${isSaved ? 'remove' : 'add'}`;
 
+    return (
+      <div className="property">
+        <div className="property__header">
+          <img src="//placehold.it/100x20" alt=""/>
+        </div>
+        <div className="property__image-container">
+          <img className="property__image" src="//placehold.it/300x300" alt="test"/>
+        </div>
+        <div className="property__details">Price: $20,000</div>
+        <div className="property__cta-container">
+          <button className={buttonClasses}>
+            {
+              isSaved ? 'Remove' : 'Add'
+            }
+          </button>
+        </div>
       </div>
     );
   }

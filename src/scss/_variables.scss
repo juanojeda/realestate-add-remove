@@ -3,8 +3,11 @@ $color-primary-base:  #247ba0;
 $color-primary-dark:  adjust-hue(darken($color-primary-base, 20%),  5deg);
 $color-primary-light: adjust-hue(lighten($color-primary-base, 30%), -5deg);
 
+$color-secondary-base: #d0044b;
+
 $color-black: #011627;
 $color-white: #f2fafc;
+$color-real-white: #fff;
 
 $color-body-bg:       $color-white;
 $color-text-base:     $color-black;
