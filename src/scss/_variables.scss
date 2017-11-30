@@ -1,10 +1,13 @@
 // colours
-$color-body-bg:       #f2fafc;
-$color-text-base:     #011627;
-
 $color-primary-base:  #247ba0;
 $color-primary-dark:  adjust-hue(darken($color-primary-base, 20%),  5deg);
 $color-primary-light: adjust-hue(lighten($color-primary-base, 30%), -5deg);
+
+$color-black: #011627;
+$color-white: #f2fafc;
+
+$color-body-bg:       $color-white;
+$color-text-base:     $color-black;
 
 // fonts
 $font-heavy:           'OxygenBold';
