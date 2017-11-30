@@ -44,6 +44,7 @@
     "gulp-uglify": "^2.1.0",
     "gulp-useref": "^3.0.0",
     "html-loader": "^0.4.4",
+    "jest": "^21.2.1",
     "ngrok": "^2.2.6",
     "path": "^0.12.7",
     "run-sequence": "^1.2.2",
@@ -70,11 +71,15 @@
     "foundation-sites": "^6.3.0-rc1",
     "hammerjs": "^2.0.8",
     "imagemin-mozjpeg": "^6.0.0",
-    "normalize-scss": "^6.0.0",
     "imagemin-pngquant": "^5.0.1",
     "lodash": "^4.16.4",
+    "normalize-scss": "^6.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.5.4",
-    "sass-lint": "^1.12.1"
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sass-lint": "^1.12.1",
+    "whatwg-fetch": "^2.0.3"
   }
 }
