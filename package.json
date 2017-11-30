@@ -7,6 +7,7 @@
     "node": ">=4"
   },
   "scripts": {
+    "test": "jest --watch",
     "start": "gulp serve",
     "start:prod": "gulp serve:prod",
     "build": "gulp && npm run"
