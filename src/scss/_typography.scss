@@ -1,0 +1,19 @@
+@import './variables';
+
+@font-face {
+  font-family: $font-regular;
+  font-weight: normal;
+  src: url('/fonts/Oxygen-Regular.ttf');
+}
+
+@font-face {
+  font-family: $font-heavy;
+  font-weight: 600;
+  src: url('/fonts/Oxygen-Bold.ttf');
+}
+
+@font-face {
+  font-family: $font-light;
+  font-weight: 200;
+  src: url('/fonts/Oxygen-Light.ttf');
+}

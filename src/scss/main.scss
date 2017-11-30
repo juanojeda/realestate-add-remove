@@ -1,6 +1,10 @@
 @import 'normalize-scss/sass/normalize';
 @import './variables';
 
+@import './typography';
+
 body {
-  background: $body-bg;
+  background: $color-body-bg;
+  color: $color-text-base;
+  font-family: $font-regular;
 }
