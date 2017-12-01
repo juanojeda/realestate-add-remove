@@ -1,8 +1,28 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+
+import assign from 'lodash/assign';
+
+import * as PropertiesActions from '../../actions/PropertiesActions';
 
 export class Property extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.handleCTAClick = this.handleCTAClick.bind(this);
+  }
+
+  handleCTAClick(){
+    const { isSaved, actions, id } = this.props;
+    const clickAction = isSaved ? actions.removeProperty : actions.addProperty;
+    const propertyPayload = isSaved ? id : this.props;
+
+    clickAction(propertyPayload);
+  }
+
   render() {
     const {
       isSaved,
@@ -22,7 +42,7 @@ export class Property extends Component {
         </div>
         <div className="property__price-container">Price: <span className="property__price">{price}</span></div>
         <div className="property__cta-container">
-          <button className={buttonClasses}>
+          <button onClick={this.handleCTAClick} className={buttonClasses}>
             {
               isSaved ? 'Remove' : 'Add'
             }
@@ -59,10 +79,16 @@ Property.defaultProps = {
   }
 };
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    actions: bindActionCreators(assign({}, PropertiesActions), dispatch)
+  };
+};
+
 const mapStateToProps = (state) => {
   return {
     savedProperties: state.PropertiesReducer.saved
   };
 };
 
-export default connect(mapStateToProps)(Property);
+export default connect(mapStateToProps, mapDispatchToProps)(Property);

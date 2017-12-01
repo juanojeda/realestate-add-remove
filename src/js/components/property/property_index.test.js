@@ -4,6 +4,8 @@ import ConnectedProperty, { Property } from './';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 
+//TODO: add `raf` polyfill to remove react warnings
+
 // chai.expect can be used for some pretty cool assertions,
 // including styles and html attributes
 chai.use(chaiEnzyme());
@@ -15,6 +17,10 @@ const PROPERTY_PRICE = '$500';
 
 function init(isSaved = false) {
   const props = {
+    actions: {
+      addProperty: jest.fn(),
+      removeProperty: jest.fn(),
+    },
     isSaved,
     price: '$500',
     agency: {
@@ -73,5 +79,30 @@ describe('Property', () => {
 
     expect($savedCTA.prop('className')).toContain('--remove');
     expect($savedCTA.text()).toBe('Remove');
+  });
+
+  it('calls the appropriate add/remove action on CTA click', () => {
+    const {
+      enzymeWrapper: unsavedProperty,
+      props: unsavedProps } = init();
+    const {
+      enzymeWrapper: savedProperty,
+      props: savedProps
+    } = init(true); // sets
+
+    expect(unsavedProps.actions.addProperty.mock.calls.length).toBe(0);
+    expect(unsavedProps.actions.removeProperty.mock.calls.length).toBe(0);
+
+    unsavedProperty.find('.property__cta').simulate('click');
+    expect(unsavedProps.actions.addProperty.mock.calls.length).toBe(1);
+    expect(unsavedProps.actions.removeProperty.mock.calls.length).toBe(0);
+
+    expect(savedProps.actions.addProperty.mock.calls.length).toBe(0);
+    expect(savedProps.actions.removeProperty.mock.calls.length).toBe(0);
+
+    savedProperty.find('.property__cta').simulate('click');
+    expect(savedProps.actions.addProperty.mock.calls.length).toBe(0);
+    expect(savedProps.actions.removeProperty.mock.calls.length).toBe(1);
+
   });
 });
