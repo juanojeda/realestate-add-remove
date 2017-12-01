@@ -65,13 +65,13 @@ describe('Property', () => {
     const { enzymeWrapper: unsavedProperty } = init();
     const { enzymeWrapper: savedProperty } = init(true); // sets
 
-    const $unsavedCta = unsavedProperty.find('.property__cta');
-    const $savedCta = savedProperty.find('.property__cta');
+    const $unsavedCTA = unsavedProperty.find('.property__cta');
+    const $savedCTA = savedProperty.find('.property__cta');
 
-    expect($unsavedCta.prop('className')).toContain('--add');
-    expect($unsavedCta.text()).toBe('Add');
+    expect($unsavedCTA.prop('className')).toContain('--add');
+    expect($unsavedCTA.text()).toBe('Add');
 
-    expect($savedCta.prop('className')).toContain('--remove');
-    expect($savedCta.text()).toBe('Remove');
+    expect($savedCTA.prop('className')).toContain('--remove');
+    expect($savedCTA.text()).toBe('Remove');
   });
 });
