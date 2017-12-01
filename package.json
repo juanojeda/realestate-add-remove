@@ -6,6 +6,12 @@
   "engines": {
     "node": ">=4"
   },
+  "jest": {
+    "setupFiles": [
+      "./config/enzymeAdapterSetup.js",
+      "./config/chai.js"
+    ]
+  },
   "scripts": {
     "test": "jest --watch",
     "start": "gulp serve",
@@ -21,7 +27,10 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.5.2",
     "browser-sync": "^2.2.1",
+    "chai": "^4.1.2",
+    "chai-enzyme": "beta",
     "del": "^2.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^3.7.1",
     "eslint-plugin-react": "^7.1.0",
     "expose-loader": "^0.7.3",
@@ -70,6 +79,7 @@
     }
   },
   "dependencies": {
+    "enzyme": "^3.2.0",
     "es6-promise": "^4.0.5",
     "foundation-sites": "^6.3.0-rc1",
     "hammerjs": "^2.0.8",
@@ -77,8 +87,8 @@
     "imagemin-pngquant": "^5.0.1",
     "lodash": "^4.16.4",
     "normalize-scss": "^6.0.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.5.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",

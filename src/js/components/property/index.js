@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-class Property extends Component {
+export class Property extends Component {
   render() {
     const {
       isSaved,
@@ -13,13 +14,13 @@ class Property extends Component {
 
     return (
       <div className="property">
-        <div className="property__header">
-          <img src="//placehold.it/100x20" alt=""/>
+        <div className="property__header" style={{background: agency.brandingColors.primary}}>
+          <img src={agency.logo} alt=""/>
         </div>
         <div className="property__image-container">
-          <img className="property__image" src="//placehold.it/300x300" alt="test"/>
+          <img className="property__image" src={mainImage} alt="test"/>
         </div>
-        <div className="property__details">Price: $20,000</div>
+        <div className="property__price-container">Price: <span className="property__price">{price}</span></div>
         <div className="property__cta-container">
           <button className={buttonClasses}>
             {
@@ -45,4 +46,23 @@ Property.propTypes = {
   })
 };
 
-export default Property;
+Property.defaultProps = {
+  isSaved:          false,
+  price:            '$1',
+  id:               '0',
+  mainImage:        '//placehold.it/300x300',
+  agency:           {
+    brandingColors: {
+      primary:      '#444',
+    },
+    logo:           '//placehold.it/100x60',
+  }
+};
+
+const mapStateToProps = (state) => {
+  return {
+    savedProperties: state.PropertiesReducer.saved
+  };
+};
+
+export default connect(mapStateToProps)(Property);
