@@ -95,14 +95,17 @@ describe('Property', () => {
 
     unsavedProperty.find('.property__cta').simulate('click');
     expect(unsavedProps.actions.addProperty.mock.calls.length).toBe(1);
+
+    expect(unsavedProps.actions.addProperty.mock.calls[0][0]).toEqual(unsavedProps);
     expect(unsavedProps.actions.removeProperty.mock.calls.length).toBe(0);
 
     expect(savedProps.actions.addProperty.mock.calls.length).toBe(0);
     expect(savedProps.actions.removeProperty.mock.calls.length).toBe(0);
 
+
     savedProperty.find('.property__cta').simulate('click');
     expect(savedProps.actions.addProperty.mock.calls.length).toBe(0);
     expect(savedProps.actions.removeProperty.mock.calls.length).toBe(1);
-
+    expect(savedProps.actions.removeProperty.mock.calls[0][0]).toBe('test');
   });
 });
