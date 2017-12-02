@@ -16,11 +16,15 @@ export class Property extends Component {
   }
 
   handleCTAClick(){
-    const { isSaved, actions, id } = this.props;
+    const { isSaved, actions } = this.props;
     const clickAction = isSaved ? actions.removeProperty : actions.addProperty;
-    const propertyPayload = isSaved ? id : this.props;
 
-    clickAction(propertyPayload);
+    const newSavedState = !isSaved;
+    const property  = assign({}, this.props, {
+      isSaved: newSavedState
+    });
+
+    clickAction(property);
   }
 
   render() {
@@ -78,10 +82,16 @@ Property.defaultProps = {
   }
 };
 
+const mapStateToProps = (state) => {
+  return {
+    results: state.results
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(assign({}, PropertiesActions), dispatch)
   };
 };
 
-export default connect(mapDispatchToProps)(Property);
+export default connect(mapStateToProps, mapDispatchToProps)(Property);

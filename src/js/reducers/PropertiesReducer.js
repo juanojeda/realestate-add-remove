@@ -25,7 +25,9 @@ const PropertiesReducer = (state = initialState, action) => {
       return newState;
     }
     case Actions.REMOVE_PROPERTY: {
-      const newSavedProperties = filter(state.saved, property => property.id !== action.propertyId);
+      const newSavedProperties = filter(state.saved, (property) => {
+        return property.id !== action.property.id
+      });
       const newState = assign({}, state, {
         saved: newSavedProperties
       });
