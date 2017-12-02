@@ -20,12 +20,19 @@ class App extends Component {
   }
 
   componentWillMount() {
+    const { actions } = this.props;
 
+    actions.fetchProperties()
+      .then(() => {
+        this.setState({
+          isLoading: false
+        });
+      });
   }
 
   render() {
-
     const { isLoading } = this.state;
+    const { allProperties, saved } = this.props;
 
     return (
       <div>
@@ -35,19 +42,27 @@ class App extends Component {
           <div className="loader">
             <div className="loader__spinner"></div>
           </div>
-          : <div className="property-selector">
+          :
+          <div className="property-selector">
             <div className="property-selector__list">
               <div className="property-selector__list-header">
                 <h3>Results</h3>
               </div>
-              <Property />
-              <Property />
-              <Property />
+              {
+                allProperties.map((property) => {
+                  return <Property key={property.id} {... property} />
+                })
+              }
             </div>
 
             <div className="property-selector__list">
               <h3>Saved Properties</h3>
-              <Property isSaved={true} />
+
+              {
+                saved.map((property) => {
+                  return <Property isSaved={true} key={property.id} {... property} />
+                })
+              }
             </div>
           </div>
         }
