@@ -1,0 +1,35 @@
+$loader-size: 4rem;
+
+.loader {
+  display: flex;
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-around;
+
+  &__spinner {
+    border: .8rem solid rgba($color-secondary-base, .5);
+    border-radius: $loader-size;
+    height: $loader-size;
+    width: $loader-size;
+    animation: pulse 1s ease-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+
+  100% {
+    height: $loader-size;
+    width: loader-size;
+    opacity: 0;
+    border-width: .1rem;
+  }
+}
