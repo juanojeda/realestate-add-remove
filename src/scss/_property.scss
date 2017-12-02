@@ -39,7 +39,8 @@
     opacity: 0;
     right: 1rem;
     position: absolute;
-    transition: .2s ease all;
+    transition-duration: .2s;
+    transition-timing-function: ease;
     transition-property: opacity z-index;
     z-index: -1;
   }
@@ -59,7 +60,8 @@
     font-size: 2rem;
     font-weight: 600;
     padding: 1rem 2rem;
-    transition: .2s ease all;
+    transition-duration: .2s;
+    transition-timing-function: ease;
     transition-property: background color;
     width: 100%;
 

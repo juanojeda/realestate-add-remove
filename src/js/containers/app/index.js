@@ -50,7 +50,7 @@ class App extends Component {
               </div>
               {
                 allProperties.map((property) => {
-                  return <Property key={property.id} {... property} />
+                  return <Property key={property.id} {... property} />;
                 })
               }
             </div>
@@ -60,7 +60,7 @@ class App extends Component {
 
               {
                 saved.map((property) => {
-                  return <Property isSaved={true} key={property.id} {... property} />
+                  return <Property isSaved={true} key={property.id} {... property} />;
                 })
               }
             </div>
