@@ -1,8 +1,12 @@
 .property-selector {
   display: flex;
   justify-content: space-around;
+  margin: 2rem 0;
 
   &__list {
-    padding: 1.5rem;
+    background: $color-white-dark;
+    border-radius: 1rem;
+    flex: 0 0 45%;
+    padding: 2rem;
   }
 }

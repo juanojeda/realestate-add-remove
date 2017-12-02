@@ -7,6 +7,7 @@ $color-secondary-base: #d0044b;
 
 $color-black: #011627;
 $color-white: #f2fafc;
+$color-white-dark: darken($color-white, 5%);
 $color-real-white: #fff;
 
 $color-body-bg:       $color-white;
