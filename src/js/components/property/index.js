@@ -19,12 +19,7 @@ export class Property extends Component {
     const { isSaved, actions } = this.props;
     const clickAction = isSaved ? actions.removeProperty : actions.addProperty;
 
-    const newSavedState = !isSaved;
-    const property  = assign({}, this.props, {
-      isSaved: newSavedState
-    });
-
-    clickAction(property);
+    clickAction(this.props);
   }
 
   render() {

@@ -1,6 +1,8 @@
 import PropertiesReducer from './PropertiesReducer';
 import * as ActionsTypes from '../actions/PropertiesActions';
 
+import assign from 'lodash/assign';
+
 import mockReceivedData from '../../data/properties.json';
 
 /* eslint-disable quotes */
@@ -60,7 +62,7 @@ describe('Properties Reducer', () => {
       })
     ).toEqual({
       results: [],
-      saved: [mockProperty]
+      saved: [assign({},{...mockProperty}, {isSaved: true})]
     });
 
     // can handle duplicates by not adding them
@@ -89,7 +91,7 @@ describe('Properties Reducer', () => {
       },
       {
         type: ActionsTypes.REMOVE_PROPERTY,
-        propertyId: '1'
+        property: mockProperty
       })
     ).toEqual({
       results: [],
