@@ -31,3 +31,5 @@ or
 ```
 npm run start
 ```
+
+Or to view it live, visit the [deployed version](http://inspiring-lovelace-a15ab2.netlify.com).
