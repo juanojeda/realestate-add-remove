@@ -27,7 +27,6 @@ export class Property extends Component {
     const {
       isSaved,
       price,
-      id,
       mainImage,
       agency } = this.props;
     const buttonClasses = `property__cta property__cta--${isSaved ? 'remove' : 'add'}`;
@@ -79,16 +78,10 @@ Property.defaultProps = {
   }
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(assign({}, PropertiesActions), dispatch)
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-    savedProperties: state.PropertiesReducer.saved
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Property);
+export default connect(mapDispatchToProps)(Property);

@@ -25,8 +25,7 @@ export const fetchProperties = () => dispatch => {
     });
 
   return propertiesPromise;
-
-}
+};
 
 // action for receiving fetched properties
 export const receiveFetchedProperties = propertiesData => ({

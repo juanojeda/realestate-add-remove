@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import ConnectedProperty, { Property } from './';
+import { Property } from './';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 
